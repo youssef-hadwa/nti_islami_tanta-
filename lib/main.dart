@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islami/features/nav/bottom_nav_bar.dart';
+import 'package:islami/features/nav/main_screen.dart';
 
 void main() {
   runApp(IslamiApp());
@@ -10,19 +12,9 @@ class IslamiApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       //  home: ,
-      routes: {'/': (context) => HomeView()},
-    );
-  }
-}
-
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
+      routes: {'/': (context) => BottomNavBar()},
     );
   }
 }
