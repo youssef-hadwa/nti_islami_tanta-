@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami/features/nav/tabs/QranTab/widgets/most_recently_section.dart';
+import 'package:islami/features/nav/tabs/QranTab/widgets/soura_details.dart';
 import 'package:islami/features/nav/tabs/QranTab/widgets/sura_search.dart';
 
 /// snake case , camel case
@@ -22,7 +24,7 @@ class QranTab extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 192,
+              height: 192.h,
             ),
             SuraSearch(),
             SizedBox(
@@ -46,36 +48,46 @@ class QranTab extends StatelessWidget {
               child: ListView.separated(
                   padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      leading: Stack(
-                        alignment: AlignmentDirectional.center,
-                        children: [
-                          Image.asset("assets/images/sura_icon.png"),
-                          Text(
-                            "1",
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SouraDetails(
+                                      index: 1,
+                                    )));
+                      },
+                      child: ListTile(
+                        leading: Stack(
+                          alignment: AlignmentDirectional.center,
+                          children: [
+                            Image.asset("assets/images/sura_icon.png"),
+                            Text(
+                              "1",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
+                        title: Text("Al-Fatiha",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      ),
-                      title: Text("Al-Fatiha",
+                                fontWeight: FontWeight.bold)),
+                        subtitle: Text(
+                          " Verses  : 7",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold)),
-                      subtitle: Text(
-                        " Verses  : 7",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      trailing: Text(
-                        "الفاتحه",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        trailing: Text(
+                          "الفاتحه",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
                       ),
                     );
                   },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:islami/features/nav/tabs/QranTab/quran_tab.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -115,7 +116,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       height: 34,
       decoration: BoxDecoration(
           color: Color(0xff202020).withOpacity(0.6),
-          borderRadius: BorderRadius.circular(66)),
+          borderRadius: BorderRadius.circular(66.r)),
       child: Image.asset(
         icon,
         color: Colors.white,
